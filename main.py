@@ -6,9 +6,14 @@ import pyttsx3
 from datetime import datetime
 import requests
 import webbrowser
+import re
 
 # ===== GLOBAL =====
 input_mode = "text"  # default input method
+
+# ===== CHECK URL =====
+def is_url(text):
+    return re.match(r"^(https?:\/\/)?(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}", text)
 
 # ===== CHAT HISTORY =====
 HISTORY_FILE = "chat_history.json"
@@ -142,9 +147,24 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
     if "remember that" in user_input:
         try:
             key, value = user_input.split("remember that")[1].strip().split(" is ")
-            memory[key.strip()] = value.strip()
+            key = key.strip()
+            value = value.strip()
+
+            # If it's a web URL
+            if is_url(value):
+                # If it doesn't already have http, add it
+                if not value.startswith("http"):
+                    value = "https://" + value
+                web_shortcuts[key] = value
+                with open("web_shortcuts.json", "w") as f:
+                    json.dump(web_shortcuts, f, indent=2)
+                return f"Got it! I'll remember that '{key}' is {value}."
+
+            # If it's a general memory fact
+            memory[key] = value
             save_memory(memory)
-            return f"Got it! I'll remember that {key.strip()} is {value.strip()}."
+            return f"Got it! I'll remember that {key} is {value}."
+
         except:
             return "Hmm, I didn’t understand that format. Try: remember that X is Y"
 

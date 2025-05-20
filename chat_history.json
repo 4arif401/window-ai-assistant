@@ -202,5 +202,37 @@
   {
     "user": "open github",
     "ai": "Opening github..."
+  },
+  {
+    "user": "remember that editor is code.exe",
+    "ai": "Got it! I'll remember that editor is code.exe."
+  },
+  {
+    "user": "open editor",
+    "ai": "Sorry, I don\u2019t know how to open code.exe."
+  },
+  {
+    "user": "open https://www.tiktok.com",
+    "ai": "Sorry, I don\u2019t know how to open https://www.tiktok.com."
+  },
+  {
+    "user": "open tiktok",
+    "ai": "Sorry, I don\u2019t know how to open tiktok."
+  },
+  {
+    "user": "open tiktok",
+    "ai": "Opening tiktok..."
+  },
+  {
+    "user": "open tiktok",
+    "ai": "Opening tiktok..."
+  },
+  {
+    "user": "remember that yt is youtube.com",
+    "ai": "Got it! I'll remember that 'yt' is https://youtube.com."
+  },
+  {
+    "user": "open yt",
+    "ai": "Opening yt..."
   }
 ]
