@@ -714,5 +714,233 @@
   {
     "user": "restart",
     "ai": "\u26a0\ufe0f That will restart your PC. Are you sure? (yes/no)"
+  },
+  {
+    "user": "open spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "play spotify",
+    "ai": "I don't know that playlist yet. Try teaching me first!"
+  },
+  {
+    "user": "open spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "click play",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "clipboard",
+    "ai": "Your local IP address is 192.168.56.1."
+  },
+  {
+    "user": "jake paul",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "click post",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "play pause",
+    "ai": "I don't know that playlist yet. Try teaching me first!"
+  },
+  {
+    "user": "click pause",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "play",
+    "ai": "Playing english playlist on Spotify..."
+  },
+  {
+    "user": "ram",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "renu",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "play music",
+    "ai": "I don't know that playlist yet. Try teaching me first!"
+  },
+  {
+    "user": "total ram",
+    "ai": "Your PC has 23.36 GB of RAM."
+  },
+  {
+    "user": "play music",
+    "ai": "I don't know that playlist yet. Try teaching me first!"
+  },
+  {
+    "user": "how much ram usage",
+    "ai": "Your PC has 23.36 GB of RAM."
+  },
+  {
+    "user": "ram usage",
+    "ai": "You're currently using about 15.5 GB of RAM."
+  },
+  {
+    "user": "gpu temperature",
+    "ai": " GPU Status:\n\u2022 Name: NVIDIA GeForce RTX 3050 Ti Laptop GPU\n\u2022 Usage: 50.0%\n\u2022 Temperature: 87.0\u00b0C"
+  },
+  {
+    "user": "open spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "click play",
+    "ai": "Couldn\u2019t find the image on screen."
+  },
+  {
+    "user": "gpu temperature",
+    "ai": " GPU Status:\n\u2022 Name: NVIDIA GeForce RTX 3050 Ti Laptop GPU\n\u2022 Usage: 3.0%\n\u2022 Temperature: 65.0\u00b0C"
+  },
+  {
+    "user": "gpu",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "gpu i have",
+    "ai": "You're using this GPU: NVIDIA GeForce RTX 3050 Ti Laptop GPU"
+  },
+  {
+    "user": "how bout cpu i have",
+    "ai": "You're using this CPU: AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD"
+  },
+  {
+    "user": "gpu i have",
+    "ai": "You're using this GPU: NVIDIA GeForce RTX 3050 Ti Laptop GPU"
+  },
+  {
+    "user": "storage",
+    "ai": "Storage Report:\n\u2022 C:\\\n  475.67 GB Total | 439.34 GB Used | 36.33 GB Free (92.4%)\n\u2022 D:\\\n  238.47 GB Total | 150.29 GB Used | 88.18 GB Free (63.0%)\n\u2022 E:\\\n  953.85 GB Total | 833.88 GB Used | 119.97 GB Free (87.4%)"
+  },
+  {
+    "user": "storage",
+    "ai": "Storage Report:\n\u2022 C:\\\n  475.67 GB Total \n 439.34 GB Used \n 36.33 GB Free (92.4%)\n\u2022 D:\\\n  238.47 GB Total \n 150.29 GB Used \n 88.18 GB Free (63.0%)\n\u2022 E:\\\n  953.85 GB Total \n 833.88 GB Used \n 119.97 GB Free (87.4%)"
+  },
+  {
+    "user": "storage",
+    "ai": "Storage Report:\n\u2022 C:\\\n  475.67 GB Total \n 439.35 GB Used \n 36.32 GB Free (92.4%)\n\u2022 D:\\\n  238.47 GB Total \n 150.29 GB Used \n 88.18 GB Free (63.0%)\n\u2022 E:\\\n  953.85 GB Total \n 833.88 GB Used \n 119.97 GB Free (87.4%)"
+  },
+  {
+    "user": "storage",
+    "ai": "Storage Report:\n\u2022 C:\\\n  475.67 GB Total \n 439.35 GB Used \n 36.32 GB Free (92.4%)\n\u2022 D:\\\n  238.47 GB Total \n 150.29 GB Used \n 88.18 GB Free (63.0%)\n\u2022 E:\\\n  953.85 GB Total \n 833.88 GB Used \n 119.97 GB Free (87.4%)"
+  },
+  {
+    "user": "gpu",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "gpu usage",
+    "ai": " GPU Status:\n\u2022 Name: NVIDIA GeForce RTX 3050 Ti Laptop GPU\n\u2022 Usage: 0.0%\n\u2022 Temperature: 66.0\u00b0C"
+  },
+  {
+    "user": "gpu usage",
+    "ai": " GPU Status:\n\u2022 Name: NVIDIA GeForce RTX 3050 Ti Laptop GPU\n\u2022 Usage: 0.0%\n\u2022 Temperature: 65.0\u00b0C"
+  },
+  {
+    "user": "ram hughes",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "shut the ram",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "how much ram",
+    "ai": "Your PC has 23.36 GB of RAM."
+  },
+  {
+    "user": "ram us",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "ram usage",
+    "ai": "You're currently using about 12.46 GB of RAM."
+  },
+  {
+    "user": "storage",
+    "ai": "Storage Report:\n\u2022 C:\\\n  475.67 GB Total \n  439.37 GB Used \n  36.3 GB Free (92.4%)\n\u2022 D:\\\n  238.47 GB Total \n  150.29 GB Used \n  88.18 GB Free (63.0%)\n\u2022 E:\\\n  953.85 GB Total \n  833.88 GB Used \n  119.97 GB Free (87.4%)"
+  },
+  {
+    "user": "cpu i have",
+    "ai": "You're using this CPU: AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD"
+  },
+  {
+    "user": "gpu i have",
+    "ai": "You're using this GPU: NVIDIA GeForce RTX 3050 Ti Laptop GPU"
+  },
+  {
+    "user": "total ram",
+    "ai": "Your PC has 23.36 GB of RAM."
+  },
+  {
+    "user": "gpu temperature",
+    "ai": " GPU Status:\n\u2022 Name: NVIDIA GeForce RTX 3050 Ti Laptop GPU\n\u2022 Usage: 0.0%\n\u2022 Temperature: 65.0\u00b0C"
+  },
+  {
+    "user": "cpu usage",
+    "ai": "Your CPU is currently using 11.2%."
+  },
+  {
+    "user": "storage",
+    "ai": "Storage Report:\n\u2022 C:\\\n  475.67 GB Total \n  439.38 GB Used \n  36.29 GB Free (92.4%)\n\u2022 D:\\\n  238.47 GB Total \n  150.29 GB Used \n  88.18 GB Free (63.0%)\n\u2022 E:\\\n  953.85 GB Total \n  833.88 GB Used \n  119.97 GB Free (87.4%)"
+  },
+  {
+    "user": "summarize https://typemoon.fandom.com/wiki/fate_series",
+    "ai": "Error reading the site: name 'use_local_model' is not defined"
+  },
+  {
+    "user": "summarize https://typemoon.fandom.com/wiki/fate_series",
+    "ai": "Error reading the site: name 'use_local_model' is not defined"
+  },
+  {
+    "user": "summarize https://typemoon.fandom.com/wiki/fate_series",
+    "ai": "Error reading the site: name 'use_local_model' is not defined"
+  },
+  {
+    "user": "summarize https://typemoon.fandom.com/wiki/fate_series",
+    "ai": "The Fate series is an expansive media franchise developed by TYPE-MOON that revolves around the Holy Grail Wars, conflicts where Masters, typically proficient magi, summon Servants, heroic spirits, and engage in combat until only one pair remains to claim a supposed Holy Grail. The franchise began with the visual novel Fate/stay night and has since grown to encompass numerous prequels, sequels, spin-offs, and adaptations under the same name. This Ace Volume 15 focuses on the relationships between various Fate spinoffs within the TYPE-MOON universe."
+  },
+  {
+    "user": "summarize https://typemoon.fandom.com/wiki/fate_series",
+    "ai": "Fate series is a TYPE-MOON media collective that follows various events called Holy Grail Wars that involve Masters, generally accomplished magi, summoning Servants, Heroic Spirits, and battling each other until the last remaining pair can claim the purported Holy Grail. It began with the visual novelWP, Fate/stay night, and has since gathered a number of prequels, sequels, spin-offs, and adaptations bearing the same name \n Relationships between the various Fate spinoffs from TYPE-MOON Ace Volume 15.."
+  },
+  {
+    "user": "summarize https://typemoon.fandom.com/wiki/fate_series",
+    "ai": "The Fate series, a media franchise by TYPE-MOON, revolves around the Holy Grail Wars, where Masters, accomplished magi, summon Servants, Heroic Spirits, to battle each other until one pair remains and claims the Holy Grail, said to grant a single wish. The franchise originated from the visual novel Fate/stay night, and since then has expanded with prequels, sequels, spin-offs, and adaptations bearing the same name. This analysis will delve into the relationships between various Fate spinoffs as presented in TYPE-MOON's Ace Volume 15."
+  },
+  {
+    "user": "summarize https://typemoon.fandom.com/wiki/fate/stay_night",
+    "ai": "Error reading the site: index out of range in self"
+  },
+  {
+    "user": "summarize https://en.wikipedia.org/wiki/fate/stay_night",
+    "ai": "Your local IP address is 192.168.56.1."
+  },
+  {
+    "user": "summarize https://en.wikipedia.org/wiki/fate/stay_night",
+    "ai": "Error reading the site: index out of range in self"
+  },
+  {
+    "user": "what is fate series",
+    "ai": "Fate is a popular visual novel media franchise created by Type-Moon. It includes multiple games, anime adaptations, and manga series. The story revolves around the concept of the Holy Grail War, where seven masters summon seven heroes to fight each other for the wish-granting Holy Grail. The franchise is known for its complex characters, intricate plotlines, and multiple routes with different outcomes. Some of the main titles in the series include Fate/stay night, Fate/Zero, and Fate/Apocrypha."
+  },
+  {
+    "user": "what is system.out.println in java?",
+    "ai": "`System.out.println` is a method in Java that writes the output to the standard output stream and then advances a line cursor. It is commonly used for printing textual output in console applications or to debug during development. The `println` part stands for print line, which means it adds a newline character at the end of the output. For example, `System.out.println(\"Hello World!\");` will display \"Hello World!\" followed by a newline character on the standard output."
+  },
+  {
+    "user": "hi how are you",
+    "ai": "Hello! I'm an artificial intelligence and don't have feelings like humans do, but I'm functioning well at the moment. How can I assist you today?\n\nI am Airi, your personal AI assistant."
+  },
+  {
+    "user": "awak fahamkah saya cakap dalam malay?",
+    "ai": "Ya, saya faham Malay dan bisa berkomunikasi dengan Anda menggunakannya. Apa yang Anda ingin tanya atau bicarakan sekarang?\n\nI am Airi, your AI assistant. I understand and can communicate with you in Malay. What would you like to ask or talk about now?"
   }
 ]

@@ -126,8 +126,44 @@ def listen():
             return ""
         except sr.RequestError:
             return ""
-
+        
 def speak(text):
+    api_key = "sk_99002d12af41aab775a53673bcb17c511b89460e4c9a4164"
+    #voice_id = "vGQNBgLaiM3EdZtxIiuY" cute female
+    #voice_id = "WtA85syCrJwasGeHGH2p" confident female
+    #voice_id = "lE5ZJB6jGeeuvSNxOvs2" toon male
+    voice_id = "XhoztTJmHnqLMnf4U3wq"
+
+    url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
+    headers = {
+        "xi-api-key": api_key,
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "text": text,
+        "model_id": "eleven_monolingual_v1",  # supports English
+        "voice_settings": {
+            "stability": 0.6,
+            "similarity_boost": 0.8
+        }
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+    if response.status_code == 200:
+        # Make sure file isn't locked from previous run
+        if os.path.exists("airi_voice.mp3"):
+            try:
+                os.remove("airi_voice.mp3")
+            except:
+                print("⚠️ Couldn't delete airi_voice.mp3 — it may still be in use.")
+        with open("airi_voice.mp3", "wb") as f:
+            f.write(response.content)
+        from playsound import playsound
+        playsound("airi_voice.mp3")
+    else:
+        print("🛑 ElevenLabs API Error:", response.text)
+
+def speak2(text):
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
     for voice in voices:
@@ -187,6 +223,17 @@ def close_app(name, memory):
         except subprocess.CalledProcessError:
             return f"Failed to close {name}. Maybe it's not running?"
     return f"I don’t know how to close {name}."
+
+def extract_url(text):
+    # Try to match common URL formats
+    match = re.search(r"(https?://\S+|www\.\S+|\b[a-zA-Z0-9\-]+\.[a-z]{2,}\S*)", text)
+    if match:
+        url = match.group(0)
+        # If no scheme, add https://
+        if not url.startswith("http"):
+            url = "https://" + url
+        return url
+    return None
 
 # ===== CALL LM STUDIO =====
 def call_lm_studio(prompt):
@@ -312,7 +359,7 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
 
                 output += (
                     f"• {partition.device}\n"
-                    f"  {total} GB Total | {used} GB Used | {free} GB Free ({percent}%)\n"
+                    f"  {total} GB Total \n  {used} GB Used \n  {free} GB Free ({percent}%)\n"
                 )
             except:
                 continue  # Some partitions might not be accessible
@@ -377,7 +424,6 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
             pending_dangerous["command"] = None
             return "❌ Cancelled the dangerous command."
 
-
     # ===== Fallback to local LLM =====
     # Build last 5 lines of memory
     memory_prompt = "\n".join(
@@ -404,7 +450,7 @@ def run_chat():
             if pending_dangerous["command"]:
                 user_input = listen()
             else:
-                if not listen_until_name("hey"):
+                if not listen_until_name(name="hey"):
                     continue
                 speak("Yes?")
                 user_input = listen()
