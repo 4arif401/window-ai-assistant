@@ -7,6 +7,15 @@ from datetime import datetime
 import requests
 import webbrowser
 import re
+import psutil
+import platform
+import socket
+import shutil
+try:
+    import GPUtil
+except:
+    GPUtil = None
+
 
 # ===== GLOBAL =====
 input_mode = "text"  # default input method
@@ -86,7 +95,10 @@ def open_app(name, memory, web_shortcuts):
         "chrome": "start chrome",
         "notepad": "start notepad",
         "opera gx": os.path.expandvars(r'start "" "%LOCALAPPDATA%\\Programs\\Opera GX\\opera.exe"'),
-        "spotify": os.path.expandvars(r'start "" "%APPDATA%\\Spotify\\Spotify.exe"'),
+        "spotify": lambda: subprocess.Popen(
+            r'"C:\Users\4arif\OneDrive\Desktop\Shortcut Other\Spotify.lnk"', shell=True
+        ),
+
     }
     if name in apps:
         command = apps[name]
@@ -216,6 +228,82 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
             return f"Searching Google for '{query}'..."
         else:
             return "What do you want me to search for?"
+    
+    elif "battery" in user_input:
+        battery = psutil.sensors_battery()
+        if battery:
+            return f"Battery level is at {battery.percent}%. {'Charging' if battery.power_plugged else 'Not charging'}."
+        else:
+            return "I couldn't access battery info on your device."
+    
+    elif "how much ram" in user_input or "total ram" in user_input:
+        total_gb = round(psutil.virtual_memory().total / (1024**3), 2)
+        return f"Your PC has {total_gb} GB of RAM."
+
+    elif "ram used" in user_input or "ram usage" in user_input:
+        ram = psutil.virtual_memory()
+        used_gb = round((ram.total - ram.available) / (1024**3), 2)
+        return f"You're currently using about {used_gb} GB of RAM."
+
+    elif "disk" in user_input or "storage" in user_input:
+        partitions = psutil.disk_partitions()
+        output = "Storage Report:\n"
+
+        for partition in partitions:
+            try:
+                usage = psutil.disk_usage(partition.mountpoint)
+                total = round(usage.total / (1024**3), 2)
+                used = round(usage.used / (1024**3), 2)
+                free = round(usage.free / (1024**3), 2)
+                percent = usage.percent
+
+                output += (
+                    f"• {partition.device}\n"
+                    f"  {total} GB Total | {used} GB Used | {free} GB Free ({percent}%)\n"
+                )
+            except:
+                continue  # Some partitions might not be accessible
+
+        return output.strip()
+
+    elif "cpu" in user_input and "usage" in user_input:
+        cpu_percent = psutil.cpu_percent(interval=1)
+        return f"Your CPU is currently using {cpu_percent}%."
+
+    elif "cpu" in user_input and "have" in user_input:
+        return f"You're using this CPU: {platform.processor()}"
+
+    elif "gpu" in user_input and "have" in user_input:
+        if GPUtil:
+            gpus = GPUtil.getGPUs()
+            if gpus:
+                return f"You're using this GPU: {gpus[0].name}"
+            else:
+                return "I couldn't detect any GPU on your system."
+        else:
+            return "GPU info not available. Try: pip install gputil"
+
+    elif "ip" in user_input:
+        hostname = socket.gethostname()
+        ip_address = socket.gethostbyname(hostname)
+        return f"Your local IP address is {ip_address}."
+    
+    elif "gpu usage" in user_input or "gpu temperature" in user_input:
+        gpus = GPUtil.getGPUs()
+        if gpus:
+            gpu = gpus[0]
+            load = round(gpu.load * 100, 2)
+            temp = gpu.temperature
+            return (
+                f" GPU Status:\n"
+                f"• Name: {gpu.name}\n"
+                f"• Usage: {load}%\n"
+                f"• Temperature: {temp}°C"
+            )
+        else:
+            return "I couldn't detect any GPU usage or temperature data."
+
+
 
     # ===== Fallback to local LLM =====
     # Build last 5 lines of memory
