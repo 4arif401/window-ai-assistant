@@ -15,10 +15,45 @@ try:
     import GPUtil
 except:
     GPUtil = None
-
+import pyautogui
+import cv2
+import numpy as np
+from PIL import ImageGrab
+import time
+from dangerous_commands import dangerous_commands
+import threading
 
 # ===== GLOBAL =====
 input_mode = "text"  # default input method
+
+# ===== TIME TRACKER FOR COMMAND =====
+pending_dangerous = {"command": None, "timer": None}
+
+# ===== CLICK IMAGE =====
+def click_image_on_screen(target_img_path, confidence=0.8, click=True):
+    try:
+        # Take screenshot
+        screenshot = ImageGrab.grab()
+        screenshot = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
+
+        # Load target image
+        target = cv2.imread(target_img_path)
+        result = cv2.matchTemplate(screenshot, target, cv2.TM_CCOEFF_NORMED)
+
+        # Find locations where the match is above threshold
+        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
+        if max_val >= confidence:
+            target_height, target_width = target.shape[:2]
+            center_x = max_loc[0] + target_width // 2
+            center_y = max_loc[1] + target_height // 2
+            pyautogui.moveTo(center_x, center_y, duration=0.2)
+            if click:
+                pyautogui.click()
+            return f"Clicked the image"
+        else:
+            return "Couldn’t find the image on screen."
+    except Exception as e:
+        return f"Error: {e}"
 
 # ===== CHECK URL =====
 def is_url(text):
@@ -168,7 +203,7 @@ def call_lm_studio(prompt):
         )
         return response.json()["choices"][0]["text"].strip()
     except Exception as e:
-        return f"Error talking to local model: {e}"
+        return f"Error talking to local model"
 
 # ===== PROCESS INPUT =====
 def process_input(user_input, memory, chat_history, web_shortcuts):
@@ -198,10 +233,10 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
         except:
             return "Hmm, I didn’t understand that format. Try: remember that X is Y"
 
-    elif any(k in user_input for k in ["open", "start", "run", "launch"]):
+    elif any(user_input.startswith(k + " ") for k in ["open", "start", "run", "launch"]):
         for k in ["open", "start", "run", "launch"]:
-            if k in user_input:
-                app = user_input.split(k)[-1].strip()
+            if user_input.startswith(k + " "):
+                app = user_input[len(k):].strip()
                 return open_app(app, memory, web_shortcuts)
 
     elif any(k in user_input for k in ["close", "stop", "exit app"]):
@@ -320,7 +355,27 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
             )
         else:
             return "I couldn't detect any GPU usage or temperature data."
+        
+    elif "click play" in user_input:
+        return click_image_on_screen("images/play_button.png")
 
+    elif "click pause" in user_input:
+        return click_image_on_screen("images/pause_button.png")
+    
+    elif user_input in dangerous_commands:
+        cmd_info = dangerous_commands[user_input]
+        pending_dangerous["command"] = user_input
+        return f"⚠️ That will {cmd_info['description']}. Are you sure? (yes/no)"
+
+    elif pending_dangerous["command"]:
+        if user_input in ["yes", "yeah", "sure"]:
+            cmd = dangerous_commands[pending_dangerous["command"]]["command"]
+            pending_dangerous["command"] = None
+            os.system(cmd)
+            return f"🛑 Executing command..."
+        else:
+            pending_dangerous["command"] = None
+            return "❌ Cancelled the dangerous command."
 
 
     # ===== Fallback to local LLM =====
@@ -345,10 +400,14 @@ def run_chat():
 
     while True:
         if input_mode == "voice":
-            if not listen_until_name("hey"):
-                continue
-            speak("Yes?")
-            user_input = listen()
+            # Skip wake word if waiting for yes/no confirmation
+            if pending_dangerous["command"]:
+                user_input = listen()
+            else:
+                if not listen_until_name("hey"):
+                    continue
+                speak("Yes?")
+                user_input = listen()
             if not user_input:
                 continue
         else:

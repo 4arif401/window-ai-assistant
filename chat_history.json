@@ -558,5 +558,161 @@
   {
     "user": "close chrome",
     "ai": "Closed chrome."
+  },
+  {
+    "user": "open chrome",
+    "ai": "Opening chrome..."
+  },
+  {
+    "user": "close chrome",
+    "ai": "Closed chrome."
+  },
+  {
+    "user": "spotify",
+    "ai": "Error talking to local model: HTTPConnectionPool(host='localhost', port=1234): Max retries exceeded with url: /v1/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024A0D06E510>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+  },
+  {
+    "user": "open spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "close spotify",
+    "ai": "Closed spotify."
+  },
+  {
+    "user": "click play",
+    "ai": "Clicked the image at (822, 709)"
+  },
+  {
+    "user": "clip play",
+    "ai": "Your local IP address is 192.168.56.1."
+  },
+  {
+    "user": "click play",
+    "ai": "Clicked the image at (822, 709)"
+  },
+  {
+    "user": "open spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "play click play",
+    "ai": "I don't know that playlist yet. Try teaching me first!"
+  },
+  {
+    "user": "open spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "open spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "click play",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "clipboard",
+    "ai": "Your local IP address is 192.168.56.1."
+  },
+  {
+    "user": "click pause",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "please play",
+    "ai": "Error talking to local model: HTTPConnectionPool(host='localhost', port=1234): Max retries exceeded with url: /v1/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000241E34CC6E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+  },
+  {
+    "user": "click play",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "clippers",
+    "ai": "Your local IP address is 192.168.56.1."
+  },
+  {
+    "user": "click pause",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "sleep",
+    "ai": "\u26a0\ufe0f That will put your PC to sleep. Are you sure? (yes/no)"
+  },
+  {
+    "user": "sleep",
+    "ai": "\u26a0\ufe0f That will put your PC to sleep. Are you sure? (yes/no)"
+  },
+  {
+    "user": "hey hey",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "sleep",
+    "ai": "\u26a0\ufe0f That will put your PC to sleep. Are you sure? (yes/no)"
+  },
+  {
+    "user": "yes",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "sleep",
+    "ai": "\u26a0\ufe0f That will put your PC to sleep. Are you sure? (yes/no)"
+  },
+  {
+    "user": "yes yes",
+    "ai": "\u274c Cancelled the dangerous command."
+  },
+  {
+    "user": "sleep",
+    "ai": "\u26a0\ufe0f That will put your PC to sleep. Are you sure? (yes/no)"
+  },
+  {
+    "user": "sleep",
+    "ai": "\u26a0\ufe0f That will put your PC to sleep. Are you sure? (yes/no)"
+  },
+  {
+    "user": "hey hey",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "sleep",
+    "ai": "\u26a0\ufe0f That will put your PC to sleep. Are you sure? (yes/no)"
+  },
+  {
+    "user": "sleep",
+    "ai": "\u26a0\ufe0f That will put your PC to sleep. Are you sure? (yes/no)"
+  },
+  {
+    "user": "hey hey",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "sleep",
+    "ai": "\u26a0\ufe0f That will put your PC to sleep. Are you sure? (yes/no)"
+  },
+  {
+    "user": "restart",
+    "ai": "Sorry, I don\u2019t know how to open ."
+  },
+  {
+    "user": "shut down",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "shut down",
+    "ai": "\u26a0\ufe0f That will shut down your PC. Are you sure? (yes/no)"
+  },
+  {
+    "user": "no",
+    "ai": "\u274c Cancelled the dangerous command."
+  },
+  {
+    "user": "restart",
+    "ai": "Sorry, I don\u2019t know how to open ."
+  },
+  {
+    "user": "restart",
+    "ai": "\u26a0\ufe0f That will restart your PC. Are you sure? (yes/no)"
   }
 ]
