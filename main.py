@@ -24,6 +24,24 @@ input_mode = "text"  # default input method
 def is_url(text):
     return re.match(r"^(https?:\/\/)?(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}", text)
 
+# ===== WAKE CALL FOR VOICE =====
+def listen_until_name(name="hey"):
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print(f"🎧 Say '{name}' to wake me up...")
+        while True:
+            try:
+                audio = recognizer.listen(source, timeout=None, phrase_time_limit=4)
+                command = recognizer.recognize_google(audio).lower()
+                print(f"👂 Heard: {command}")
+                if name in command:
+                    return True
+            except sr.UnknownValueError:
+                continue
+            except sr.RequestError:
+                print("⚠️ Could not connect to speech service.")
+                return False
+
 # ===== CHAT HISTORY =====
 HISTORY_FILE = "chat_history.json"
 
@@ -212,7 +230,7 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
         else:
             return "I don't know any playlists yet. Try teaching me one!"
 
-    elif "what is today's date" in user_input or "what's today's date" in user_input:
+    elif "what is today's date" in user_input or "today's date" in user_input:
         today = datetime.now().strftime("%A, %B %d, %Y")
         return f"Today is {today}."
 
@@ -308,10 +326,10 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
     # ===== Fallback to local LLM =====
     # Build last 5 lines of memory
     memory_prompt = "\n".join(
-        [f"Human: {h['user']}\nAisi: {h['ai']}" for h in chat_history[-5:]]
+        [f"Human: {h['user']}\nAiri: {h['ai']}" for h in chat_history[-5:]]
     )
 
-    prompt = f"I am Aisi, your personal AI assistant.\nHuman: {user_input}\nAisi:"
+    prompt = f"I am Airi, your personal AI assistant.\nHuman: {user_input}\nAiri:"
     response = call_lm_studio(prompt)
     return response
 
@@ -327,6 +345,9 @@ def run_chat():
 
     while True:
         if input_mode == "voice":
+            if not listen_until_name("hey"):
+                continue
+            speak("Yes?")
             user_input = listen()
             if not user_input:
                 continue
@@ -353,7 +374,7 @@ def run_chat():
             break
 
         response = process_input(user_input, memory, chat_history, web_shortcuts)
-        print("Aisi:", response)
+        print("Airi:", response)
         speak(response)
         chat_history.append({"user": user_input, "ai": response})
         save_chat_history(chat_history)

@@ -462,5 +462,101 @@
   {
     "user": "open browser",
     "ai": "Opening opera gx..."
+  },
+  {
+    "user": "what time is today",
+    "ai": "Error talking to local model: HTTPConnectionPool(host='localhost', port=1234): Max retries exceeded with url: /v1/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000151C69DE510>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+  },
+  {
+    "user": "cpu usage",
+    "ai": "Your CPU is currently using 11.3%."
+  },
+  {
+    "user": "ram",
+    "ai": "Error talking to local model: HTTPConnectionPool(host='localhost', port=1234): Max retries exceeded with url: /v1/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024CA0C5A510>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+  },
+  {
+    "user": "ram usage",
+    "ai": "You're currently using about 16.96 GB of RAM."
+  },
+  {
+    "user": "storage",
+    "ai": "Storage Report:\n\u2022 C:\\\n  475.67 GB Total | 445.45 GB Used | 30.22 GB Free (93.6%)\n\u2022 D:\\\n  238.47 GB Total | 150.29 GB Used | 88.18 GB Free (63.0%)\n\u2022 E:\\\n  953.85 GB Total | 831.96 GB Used | 121.89 GB Free (87.2%)"
+  },
+  {
+    "user": "battery",
+    "ai": "Battery level is at 100%. Charging."
+  },
+  {
+    "user": "tpu temperature",
+    "ai": "Error talking to local model: HTTPConnectionPool(host='localhost', port=1234): Max retries exceeded with url: /v1/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024CA0F91090>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+  },
+  {
+    "user": "gpu temperature",
+    "ai": " GPU Status:\n\u2022 Name: NVIDIA GeForce RTX 3050 Ti Laptop GPU\n\u2022 Usage: 0.0%\n\u2022 Temperature: 64.0\u00b0C"
+  },
+  {
+    "user": "battery",
+    "ai": "Battery level is at 100%. Charging."
+  },
+  {
+    "user": "open chrome",
+    "ai": "Opening chrome..."
+  },
+  {
+    "user": "close chrome",
+    "ai": "Closed chrome."
+  },
+  {
+    "user": "battery",
+    "ai": "Battery level is at 100%. Charging."
+  },
+  {
+    "user": "how much ram i have",
+    "ai": "Your PC has 23.36 GB of RAM."
+  },
+  {
+    "user": "is today's date",
+    "ai": "Error talking to local model: HTTPConnectionPool(host='localhost', port=1234): Max retries exceeded with url: /v1/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024CA0F91950>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+  },
+  {
+    "user": "current time",
+    "ai": "The current time is 04:11 PM."
+  },
+  {
+    "user": "what is today's date",
+    "ai": "Today is Tuesday, May 20, 2025."
+  },
+  {
+    "user": "what time is it",
+    "ai": "The current time is 04:12 PM."
+  },
+  {
+    "user": "ram usage",
+    "ai": "You're currently using about 16.95 GB of RAM."
+  },
+  {
+    "user": "gpu i have",
+    "ai": "You're using this GPU: NVIDIA GeForce RTX 3050 Ti Laptop GPU"
+  },
+  {
+    "user": "cpu i",
+    "ai": "Error talking to local model: HTTPConnectionPool(host='localhost', port=1234): Max retries exceeded with url: /v1/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024CA0C2F230>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+  },
+  {
+    "user": "cpu usage",
+    "ai": "Your CPU is currently using 11.5%."
+  },
+  {
+    "user": "cpu i have",
+    "ai": "You're using this CPU: AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD"
+  },
+  {
+    "user": "open chrome",
+    "ai": "Opening chrome..."
+  },
+  {
+    "user": "close chrome",
+    "ai": "Closed chrome."
   }
 ]
