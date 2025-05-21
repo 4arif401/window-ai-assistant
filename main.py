@@ -24,7 +24,7 @@ from dangerous_commands import dangerous_commands
 import threading
 
 # ===== GLOBAL =====
-input_mode = "text"  # default input method
+input_mode = "voice"  # default input method
 
 # ===== TIME TRACKER FOR COMMAND =====
 pending_dangerous = {"command": None, "timer": None}
@@ -255,6 +255,9 @@ def call_lm_studio(prompt):
 # ===== PROCESS INPUT =====
 def process_input(user_input, memory, chat_history, web_shortcuts):
     user_input = user_input.lower().strip()
+
+    if user_input in ["exit", "quit"]:
+        return "__exit__"
 
     if "remember that" in user_input:
         try:

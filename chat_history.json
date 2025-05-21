@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "user": "CPU usage",
+    "ai": "Your CPU is currently using 12.6%."
+  },
+  {
+    "user": "CPU usage",
+    "ai": "Your CPU is currently using 10.9%."
+  },
+  {
+    "user": "CPU usage",
+    "ai": "Your CPU is currently using 21.6%."
+  },
+  {
+    "user": "exit",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "exit",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "quit",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "open YT",
+    "ai": "Opening yt..."
+  },
+  {
+    "user": "storage",
+    "ai": "Storage Report:\n\u2022 C:\\\n  475.67 GB Total \n  443.67 GB Used \n  32.0 GB Free (93.3%)\n\u2022 D:\\\n  238.47 GB Total \n  150.29 GB Used \n  88.18 GB Free (63.0%)\n\u2022 E:\\\n  953.85 GB Total \n  827.79 GB Used \n  126.07 GB Free (86.8%)"
+  },
+  {
+    "user": "who are you",
+    "ai": "I am Airi, a helpful and friendly AI assistant designed to make your life easier by answering questions, providing information, and assisting with various tasks. How can I help you today?"
+  },
+  {
+    "user": "who are you",
+    "ai": "I am a large language model trained by Mistral AI. My purpose is to assist you with various tasks and provide information as best as I can. How can I help you today?\n\nI am Airi, your personal AI assistant."
+  }
+]
