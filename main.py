@@ -332,6 +332,15 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
         else:
             return "What do you want me to search for?"
     
+    elif user_input.startswith("search youtube for ") or user_input.startswith("youtube "):
+        query = user_input.replace("search youtube for", "").replace("youtube", "").strip()
+        if query:
+            url = f"https://www.youtube.com/results?search_query={query.replace(' ', '+')}"
+            webbrowser.open(url)
+            return f"Searching Youtube for '{query}'..."
+        else:
+            return "What do you want me to search for?"
+
     elif "battery" in user_input:
         battery = psutil.sensors_battery()
         if battery:
@@ -426,6 +435,9 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
         else:
             pending_dangerous["command"] = None
             return "❌ Cancelled the dangerous command."
+    
+    elif "movie" in user_input:
+        return "__toggle_movie_mode__"
 
     # ===== Fallback to local LLM =====
     # Build last 5 lines of memory

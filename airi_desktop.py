@@ -10,6 +10,8 @@ import os
 IDLE_IMG = "airi_state/airi_idle.png"
 WALK_IMG = "airi_state/airi_walk.png"
 SLEEP_IMG = "airi_state/airi_sleep.png"
+POPCORN_IMG1 = "airi_state/airi_popcorn1.png"
+POPCORN_IMG2 = "airi_state/airi_popcorn2.png"
 SCALE_WIDTH = 225
 SCALE_HEIGHT = 225
 IDLE_TIMEOUT = 60  # seconds
@@ -44,7 +46,9 @@ class AiriApp:
             "idle": self.load_scaled_image(IDLE_IMG),
             "walk_right": walk_right,
             "walk_left": walk_left,
-            "sleep": self.load_scaled_image(SLEEP_IMG)
+            "sleep": self.load_scaled_image(SLEEP_IMG),
+            "popcorn1": self.load_scaled_image(POPCORN_IMG1),
+            "popcorn2": self.load_scaled_image(POPCORN_IMG2)
         }
 
         self.sprite = self.canvas.create_image(self.x, self.y, anchor="nw", image=self.frames["idle"])
@@ -61,6 +65,10 @@ class AiriApp:
         #self.root.geometry(f"{self.root.winfo_screenwidth()}x{self.root.winfo_screenheight()}+0+0")
         self.root.geometry(f"{screen_w}x{screen_h}+0+0")
         #self.canvas.coords(self.sprite, self.x, self.y)
+
+        #MODE
+        self.movie_mode = False
+        self.movie_frame = 0
 
         #AI UPLOAD
         self.memory = load_memory()
@@ -80,6 +88,20 @@ class AiriApp:
     def update_behavior(self):
         while True:
             time.sleep(0.1)
+            
+            if self.movie_mode:
+                # Move Airi to bottom-right corner
+                self.x = self.screen_width - SCALE_WIDTH
+                self.y = self.screen_height - SCALE_HEIGHT - 40  # Adjust for taskbar
+                self.canvas.coords(self.sprite, self.x, self.y)
+
+                # Toggle frames every half second
+                self.state = "popcorn1" if self.movie_frame % 2 == 0 else "popcorn2"
+                self.update_sprite()
+                self.movie_frame += 1
+                time.sleep(0.5)
+                continue  # Skip normal behavior
+            
             if self.is_interacting:
                 continue  # ❌ Don't update state if interacting
 
@@ -116,6 +138,23 @@ class AiriApp:
 
     def voice_loop(self):
         while True:
+            
+            if self.movie_mode:
+                user_input = listen()
+                if user_input and "movie end" in user_input.lower():
+                    self.movie_mode = False
+                    self.state = "idle"
+                    self.last_active = time.time()  # ✅ Restart activity timer
+                    speak("That is a good movie.")
+                    self.is_interacting = False 
+                    #self.x = random.randint(100, self.screen_width - SCALE_WIDTH)
+                    #self.y = self.screen_height - SCALE_HEIGHT - 40
+                    #self.canvas.coords(self.sprite, self.x, self.y)
+                    self.update_sprite()
+                    continue
+                else:
+                    continue  # stay in movie mode and listen again
+     
             if not listen_until_name(name="hey"):
                 continue
 
@@ -131,11 +170,26 @@ class AiriApp:
                 continue
 
             response = process_input(user_input, self.memory, self.chat_history, self.web_shortcuts)
+            
+            #Movie
+            if response == "__toggle_movie_mode__":
+                self.movie_mode = not self.movie_mode
+                if self.movie_mode:
+                    self.state = "popcorn1"
+                else:
+                    self.state = "idle"
+                    self.x = random.randint(100, self.screen_width - SCALE_WIDTH)
+                    self.y = self.screen_height - SCALE_HEIGHT - 40
+                    self.canvas.coords(self.sprite, self.x, self.y)
+                continue
+
+            #Terminate
             if response == "__exit__":
                 speak("Goodbye!")
                 self.root.quit()
                 os._exit(0)  # ⛔ Forcefully terminate all threads and close the app
                 return
+                
             print("Airi:", response)
             speak(response)
             self.chat_history.append({"user": user_input, "ai": response})

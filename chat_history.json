@@ -38,5 +38,109 @@
   {
     "user": "who are you",
     "ai": "I am a large language model trained by Mistral AI. My purpose is to assist you with various tasks and provide information as best as I can. How can I help you today?\n\nI am Airi, your personal AI assistant."
+  },
+  {
+    "user": "today's date",
+    "ai": "Today is Wednesday, May 21, 2025."
+  },
+  {
+    "user": "what time",
+    "ai": "The current time is 10:35 AM. Is there anything else you need help with?\n\nI can help you with a variety of tasks such as setting reminders, answering questions, and providing news updates. If you have any specific requests or need assistance with something, feel free to ask!"
+  },
+  {
+    "user": "what time is it",
+    "ai": "The current time is 04:18 PM."
+  },
+  {
+    "user": "open YouTube",
+    "ai": "Opening youtube..."
+  },
+  {
+    "user": "search for valorant in YouTube",
+    "ai": "Searching Google for 'valorant in youtube'..."
+  },
+  {
+    "user": "search YouTube for you",
+    "ai": "Searching Youtube for 'search youtube for you'..."
+  },
+  {
+    "user": "search YouTube for valorant",
+    "ai": "Searching Youtube for 'search youtube for valorant'..."
+  },
+  {
+    "user": "search YouTube for valorant",
+    "ai": "Searching Youtube for 'valorant'..."
+  },
+  {
+    "user": "search YouTube for weather",
+    "ai": "Searching Youtube for 'weather'..."
+  },
+  {
+    "user": "search YouTube for Val",
+    "ai": "Searching Youtube for 'val'..."
+  },
+  {
+    "user": "search YouTube for Val",
+    "ai": "Searching Youtube for 'val'..."
+  },
+  {
+    "user": "search YouTube for valour",
+    "ai": "Searching Youtube for 'valour'..."
+  },
+  {
+    "user": "search YouTube for valour",
+    "ai": "Searching Youtube for 'valour'..."
+  },
+  {
+    "user": "search YouTube for valorant",
+    "ai": "Searching Youtube for 'valorant'..."
+  },
+  {
+    "user": "search YouTube for valorant",
+    "ai": "Searching Youtube for 'valorant'..."
+  },
+  {
+    "user": "search YouTube for silver lineup",
+    "ai": "Searching Youtube for 'silver lineup'..."
+  },
+  {
+    "user": "search YouTube for Jack gameplay",
+    "ai": "Searching Youtube for 'jack gameplay'..."
+  },
+  {
+    "user": "search YouTube for Jett gameplay",
+    "ai": "Searching Youtube for 'jett gameplay'..."
+  },
+  {
+    "user": "search YouTube for sober lineup",
+    "ai": "Searching Youtube for 'sober lineup'..."
+  },
+  {
+    "user": "YouTube for valorant silver lineup",
+    "ai": "Searching Youtube for 'for valorant silver lineup'..."
+  },
+  {
+    "user": "search YouTube for cu line-up valorant",
+    "ai": "Searching Youtube for 'cu line-up valorant'..."
+  },
+  {
+    "user": "for documentary animal",
+    "ai": "A documentary about animals typically focuses on showcasing their behavior, habitat, and conservation efforts related to them. The term \"animal\" is quite broad, so the specific type of animal featured in the documentary can vary greatly. Some popular choices include big cats like lions, tigers, and leopards; marine life such as whales, dolphins, and sea turtles; or endangered species like pandas, gorillas, and polar bears.\n\nThe production of a documentary about animals often involves extensive research, filming in remote locations, and working with experts in the field to ensure accuracy and educational value. The aim is to create a captivating and informative piece that raises awareness"
+  },
+  {
+    "user": "can you give me several tips for interview for a job",
+    "ai": "Your local IP address is 192.168.56.1."
+  },
+  {
+    "user": "can you",
+    "ai": "Yes, I can assist you with various tasks. What do you need help with?"
+  },
+  {
+    "user": "what is your name",
+    "ai": "My name is Airi, short for Artificial Intelligence Research Assistant. How can I assist you today?\n\nI am Airi, your personal AI assistant."
+  },
+  {
+    "user": "what's",
+    "ai": "What would you like to know? I can help with a wide range of topics including general knowledge, math problems, language translation, and more. Please specify the subject or question you have in mind.\n\nFor example, if you want to know about a specific historical event, you could ask \"When was the Declaration of Independence signed?\" If you need help solving a math problem, you could ask \"What is the square root of 144?\" If you'd like to translate a phrase into another language, simply provide the text and specify the target language.\n\nIf you have any other question or request, feel free to ask! I am here to assist you."
   }
 ]
