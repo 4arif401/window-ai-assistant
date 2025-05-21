@@ -127,41 +127,68 @@ def listen():
         except sr.RequestError:
             return ""
         
+#XTTS IMPORT AND OTHER
+# === XTTSv2 (custom voice) setup ===
+import torch
+from torch.serialization import add_safe_globals
+
+from TTS.tts.configs.xtts_config import XttsConfig
+from TTS.tts.models.xtts import XttsAudioConfig, XttsArgs
+from TTS.config.shared_configs import BaseDatasetConfig
+
+add_safe_globals([
+    XttsConfig,
+    XttsAudioConfig,
+    XttsArgs,
+    BaseDatasetConfig
+])
+
+from TTS.api import TTS
+xtts = TTS(model_name="tts_models/multilingual/multi-dataset/xtts_v2", progress_bar=False)
+xtts.to("cuda" if torch.cuda.is_available() else "cpu")  # ✅ Auto GPU fallback
+
+# Your trained voice clips (relative path)
+speaker_wavs = [
+    "my_voice_dataset/clips/001_cleaned.wav",
+    "my_voice_dataset/clips/002_cleaned.wav",
+    "my_voice_dataset/clips/003_cleaned.wav",
+    "my_voice_dataset/clips/004_cleaned.wav",
+    "my_voice_dataset/clips/005_cleaned.wav",
+    "my_voice_dataset/clips/006_cleaned.wav",
+    "my_voice_dataset/clips/007_cleaned.wav",
+    "my_voice_dataset/clips/008_cleaned.wav",
+    "my_voice_dataset/clips/009_cleaned.wav",
+    "my_voice_dataset/clips/010_cleaned.wav"
+]
+
+import pygame
 def speak(text):
-    api_key = "sk_99002d12af41aab775a53673bcb17c511b89460e4c9a4164"
-    #voice_id = "vGQNBgLaiM3EdZtxIiuY" cute female
-    #voice_id = "WtA85syCrJwasGeHGH2p" confident female
-    #voice_id = "lE5ZJB6jGeeuvSNxOvs2" toon male
-    voice_id = "XhoztTJmHnqLMnf4U3wq"
+    output_path = "airi_voice.wav"  # ✅ Change to WAV
 
-    url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
-    headers = {
-        "xi-api-key": api_key,
-        "Content-Type": "application/json"
-    }
-    payload = {
-        "text": text,
-        "model_id": "eleven_monolingual_v1",  # supports English
-        "voice_settings": {
-            "stability": 0.6,
-            "similarity_boost": 0.8
-        }
-    }
+    # Ensure pygame isn't using the file
+    if pygame.mixer.get_init():
+        pygame.mixer.music.stop()
+        pygame.mixer.quit()
 
-    response = requests.post(url, headers=headers, json=payload)
-    if response.status_code == 200:
-        # Make sure file isn't locked from previous run
-        if os.path.exists("airi_voice.mp3"):
-            try:
-                os.remove("airi_voice.mp3")
-            except:
-                print("⚠️ Couldn't delete airi_voice.mp3 — it may still be in use.")
-        with open("airi_voice.mp3", "wb") as f:
-            f.write(response.content)
-        from playsound import playsound
-        playsound("airi_voice.mp3")
-    else:
-        print("🛑 ElevenLabs API Error:", response.text)
+    # Generate speech with XTTS
+    xtts.tts_to_file(
+        text=text,
+        speaker_wav=speaker_wavs,
+        language="en",
+        file_path=output_path
+    )
+
+    # Wait a moment to ensure file is written
+    time.sleep(0.1)
+
+    # ✅ Play the clean .wav file
+    pygame.mixer.init()
+    pygame.mixer.music.load(output_path)
+    pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy():
+        time.sleep(0.1)
+    
+    pygame.mixer.quit()  # Release file for next use
 
 def speak2(text):
     engine = pyttsx3.init()

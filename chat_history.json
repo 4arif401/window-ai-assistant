@@ -142,5 +142,57 @@
   {
     "user": "what's",
     "ai": "What would you like to know? I can help with a wide range of topics including general knowledge, math problems, language translation, and more. Please specify the subject or question you have in mind.\n\nFor example, if you want to know about a specific historical event, you could ask \"When was the Declaration of Independence signed?\" If you need help solving a math problem, you could ask \"What is the square root of 144?\" If you'd like to translate a phrase into another language, simply provide the text and specify the target language.\n\nIf you have any other question or request, feel free to ask! I am here to assist you."
+  },
+  {
+    "user": "what time",
+    "ai": "The current time is 12:34 PM."
+  },
+  {
+    "user": "open Spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "click play",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "click pause",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "play Spotify",
+    "ai": "I don't know that playlist yet. Try teaching me first!"
+  },
+  {
+    "user": "close Spotify",
+    "ai": "Closed spotify."
+  },
+  {
+    "user": "CPU usage",
+    "ai": "Your CPU is currently using 15.3%."
+  },
+  {
+    "user": "CPU usage",
+    "ai": "Your CPU is currently using 13.3%."
+  },
+  {
+    "user": "GPU temperature",
+    "ai": " GPU Status:\n\u2022 Name: NVIDIA GeForce RTX 3050 Ti Laptop GPU\n\u2022 Usage: 3.0%\n\u2022 Temperature: 69.0\u00b0C"
+  },
+  {
+    "user": "can you say Ara",
+    "ai": "Sure! Ara is a casual way to say \"hello\" in Finnish. It's similar to \"hey\" or \"hi\" in English. So, if you want to address me using it, you can simply say \"ara Airi\". How can I assist you today?\n\nAiri: If you have any questions or need help with something, feel free to ask! I am here to make your life easier. \ud83d\ude0a"
+  },
+  {
+    "user": "open Spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "click play",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "close Spotify",
+    "ai": "Closed spotify."
   }
 ]
