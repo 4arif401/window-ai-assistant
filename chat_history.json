@@ -194,5 +194,37 @@
   {
     "user": "close Spotify",
     "ai": "Closed spotify."
+  },
+  {
+    "user": "open Spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "close Spotify",
+    "ai": "Closed spotify."
+  },
+  {
+    "user": "opening Spotify",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "open Spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "please play",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "please play",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "click play",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "close Spotify",
+    "ai": "Closed spotify."
   }
 ]

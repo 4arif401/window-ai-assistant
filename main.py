@@ -143,6 +143,15 @@ add_safe_globals([
     BaseDatasetConfig
 ])
 
+_real_torch_load = torch.load
+
+def safe_load(*args, **kwargs):
+    if "weights_only" not in kwargs:
+        kwargs["weights_only"] = True
+    return _real_torch_load(*args, **kwargs)
+
+torch.load = safe_load
+
 from TTS.api import TTS
 xtts = TTS(model_name="tts_models/multilingual/multi-dataset/xtts_v2", progress_bar=False)
 xtts.to("cuda" if torch.cuda.is_available() else "cpu")  # ✅ Auto GPU fallback
@@ -158,7 +167,17 @@ speaker_wavs = [
     "my_voice_dataset/clips/007_cleaned.wav",
     "my_voice_dataset/clips/008_cleaned.wav",
     "my_voice_dataset/clips/009_cleaned.wav",
-    "my_voice_dataset/clips/010_cleaned.wav"
+    "my_voice_dataset/clips/010_cleaned.wav",
+    "my_voice_dataset/clips/011_cleaned.wav",
+    "my_voice_dataset/clips/012_cleaned.wav",
+    "my_voice_dataset/clips/013_cleaned.wav",
+    "my_voice_dataset/clips/014_cleaned.wav",
+    "my_voice_dataset/clips/015_cleaned.wav",
+    "my_voice_dataset/clips/016_cleaned.wav",
+    "my_voice_dataset/clips/017_cleaned.wav",
+    "my_voice_dataset/clips/018_cleaned.wav",
+    "my_voice_dataset/clips/019_cleaned.wav",
+    "my_voice_dataset/clips/020_cleaned.wav"
 ]
 
 import pygame
