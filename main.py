@@ -49,7 +49,7 @@ def click_image_on_screen(target_img_path, confidence=0.8, click=True):
             pyautogui.moveTo(center_x, center_y, duration=0.2)
             if click:
                 pyautogui.click()
-            return f"Clicked the image"
+            return f"Clicked the button"
         else:
             return "Couldn’t find the image on screen."
     except Exception as e:
@@ -177,7 +177,17 @@ speaker_wavs = [
     "my_voice_dataset/clips/017_cleaned.wav",
     "my_voice_dataset/clips/018_cleaned.wav",
     "my_voice_dataset/clips/019_cleaned.wav",
-    "my_voice_dataset/clips/020_cleaned.wav"
+    "my_voice_dataset/clips/020_cleaned.wav",
+    "my_voice_dataset/clips/021_cleaned.wav",
+    "my_voice_dataset/clips/022_cleaned.wav",
+    "my_voice_dataset/clips/023_cleaned.wav",
+    "my_voice_dataset/clips/024_cleaned.wav",
+    "my_voice_dataset/clips/025_cleaned.wav",
+    "my_voice_dataset/clips/026_cleaned.wav",
+    "my_voice_dataset/clips/027_cleaned.wav",
+    "my_voice_dataset/clips/028_cleaned.wav",
+    "my_voice_dataset/clips/029_cleaned.wav",
+    "my_voice_dataset/clips/030_cleaned.wav",
 ]
 
 import pygame

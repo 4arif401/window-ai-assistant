@@ -242,5 +242,77 @@
   {
     "user": "death death",
     "ai": "Error talking to local model"
+  },
+  {
+    "user": "CPR",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "CPU usage",
+    "ai": "Your CPU is currently using 9.7%."
+  },
+  {
+    "user": "GPU temperature",
+    "ai": " GPU Status:\n\u2022 Name: NVIDIA GeForce RTX 3050 Ti Laptop GPU\n\u2022 Usage: 1.0%\n\u2022 Temperature: 64.0\u00b0C"
+  },
+  {
+    "user": "open Spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "play please",
+    "ai": "I don't know that playlist yet. Try teaching me first!"
+  },
+  {
+    "user": "open Spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "play play please",
+    "ai": "I don't know that playlist yet. Try teaching me first!"
+  },
+  {
+    "user": "open Spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "click play please",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "close Spotify",
+    "ai": "Closed spotify."
+  },
+  {
+    "user": "search YouTube for honkai story",
+    "ai": "Searching Youtube for 'honkai story'..."
+  },
+  {
+    "user": "open Spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "click play",
+    "ai": "Clicked the image"
+  },
+  {
+    "user": "search YouTube for honkai",
+    "ai": "Searching Youtube for 'honkai'..."
+  },
+  {
+    "user": "open Spotify",
+    "ai": "Opening spotify..."
+  },
+  {
+    "user": "please play",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "click play",
+    "ai": "Clicked the button"
+  },
+  {
+    "user": "close Spotify",
+    "ai": "Closed spotify."
   }
 ]
