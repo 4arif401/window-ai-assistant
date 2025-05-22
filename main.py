@@ -484,6 +484,9 @@ def process_input(user_input, memory, chat_history, web_shortcuts):
     
     elif "movie" in user_input:
         return "__toggle_movie_mode__"
+    
+    elif "test" in user_input:
+        return "__toggle_type_mode__"
 
     # ===== Fallback to local LLM =====
     # Build last 5 lines of memory

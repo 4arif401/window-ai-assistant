@@ -5,6 +5,7 @@ import threading
 import random
 from ai_voice_interface import listen_until_name, listen, speak, process_input, load_memory, load_chat_history, save_chat_history, load_web_shortcuts, pending_dangerous
 import os
+import pyautogui
 
 # === CONFIG ===
 IDLE_IMG = "airi_state/airi_idle.png"
@@ -69,6 +70,7 @@ class AiriApp:
         #MODE
         self.movie_mode = False
         self.movie_frame = 0
+        self.type_mode = False 
 
         #AI UPLOAD
         self.memory = load_memory()
@@ -84,6 +86,13 @@ class AiriApp:
         if flip:
             img = img.transpose(Image.FLIP_LEFT_RIGHT)
         return ImageTk.PhotoImage(img.resize((SCALE_WIDTH, SCALE_HEIGHT), Image.NEAREST))
+
+    def spam_typing_loop(self):
+        import pyautogui
+        while self.type_mode:
+            pyautogui.write("d a ", interval=0.001)  # 🟢 Ultra fast
+            # Optional short pause to reduce CPU spike:
+            time.sleep(0.001)
 
     def update_behavior(self):
         while True:
@@ -101,6 +110,19 @@ class AiriApp:
                 self.movie_frame += 1
                 time.sleep(0.5)
                 continue  # Skip normal behavior
+
+            # === TYPE MODE ===
+            if self.type_mode:
+                while True:
+                    user_input = listen()
+                    if user_input and "stop" in user_input.lower():
+                        self.type_mode = False
+                        speak("Stopped typing.")
+                        break
+                    #pyautogui.write("d a", interval=0.01)  # 🟡 Typing spam
+                self.is_interacting = False
+                self.last_active = time.time()
+                continue
             
             if self.is_interacting:
                 continue  # ❌ Don't update state if interacting
@@ -181,6 +203,17 @@ class AiriApp:
                     self.x = random.randint(100, self.screen_width - SCALE_WIDTH)
                     self.y = self.screen_height - SCALE_HEIGHT - 40
                     self.canvas.coords(self.sprite, self.x, self.y)
+                continue
+            
+            #Type Loop
+            # === TYPE MODE TOGGLE ===
+            if response == "__toggle_type_mode__":
+                self.type_mode = not self.type_mode
+                if self.type_mode:
+                    speak("Typing mode started.")
+                    threading.Thread(target=self.spam_typing_loop, daemon=True).start()
+                else:
+                    speak("Typing mode stopped.")
                 continue
 
             #Terminate

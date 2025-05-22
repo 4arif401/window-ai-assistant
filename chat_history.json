@@ -226,5 +226,21 @@
   {
     "user": "close Spotify",
     "ai": "Closed spotify."
+  },
+  {
+    "user": "open Notepad",
+    "ai": "Opening notepad..."
+  },
+  {
+    "user": "tight tight",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "Lulu",
+    "ai": "Error talking to local model"
+  },
+  {
+    "user": "death death",
+    "ai": "Error talking to local model"
   }
 ]
